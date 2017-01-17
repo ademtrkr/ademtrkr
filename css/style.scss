@@ -1,0 +1,241 @@
+
+// ----
+// Sass (v3.4.7)
+// Compass (v1.0.1)
+// fonksioynlar
+/*
+.test-1 {
+  @include linear-gradient(#31B7D7, #EDAC7D);
+}
+
+.test-2 {
+  @include linear-gradient(to right, #E47D7D 0%, #C195D3 50%, #4FB4E8 100%);
+}
+
+
+.test-3 {
+  @include linear-gradient(42deg, #B58234 0%, #D2B545 50%, #D7C04D 50.01%, #FFFFFF 100%);
+}
+
+ */
+@function convert-angle($value, $unit) {
+  $convertable-units: deg grad turn rad;
+  $conversion-factors: 1 (10grad/9deg) (1turn/360deg) (3.1415926rad/180deg);
+  @if index($convertable-units, unit($value)) and index($convertable-units, $unit) {
+    @return $value
+             / nth($conversion-factors, index($convertable-units, unit($value)))
+             * nth($conversion-factors, index($convertable-units, $unit));
+  }
+
+  @warn "Cannot convert `#{unit($value)}` to `#{$unit}`.";
+}
+@function is-direction($value) {
+  $is-direction: index((to top, to top right, to right top, to right, to bottom right, to right bottom, to bottom, to bottom left, to left bottom, to left, to left top, to top left), $value);
+  $is-angle: type-of($value) == 'number' and index('deg' 'grad' 'turn' 'rad', unit($value));
+
+  @return $is-direction or $is-angle;
+}
+@function legacy-direction($value) {
+  @if is-direction($value) == false {
+    @warn "Cannot convert `#{$value}` to legacy syntax because it doesn't seem to be an angle or a direction";
+  }
+
+  $conversion-map: (
+          to top          : bottom,
+          to top right    : bottom left,
+          to right top    : left bottom,
+          to right        : left,
+          to bottom right : top left,
+          to right bottom : left top,
+          to bottom       : top,
+          to bottom left  : top right,
+          to left bottom  : right top,
+          to left         : right,
+          to left top     : right bottom,
+          to top left     : bottom right
+  );
+
+  @if map-has-key($conversion-map, $value) {
+    @return map-get($conversion-map, $value);
+  }
+
+  @return 90deg - convert-angle($value, 'deg');
+}
+@mixin linear-gradient($direction, $color-stops...) {
+  @if is-direction($direction) == false {
+    $color-stops: ($direction, $color-stops);
+    $direction: 180deg;
+  }
+
+  background: nth(nth($color-stops, 1), 1);
+  background: -webkit-linear-gradient(legacy-direction($direction), $color-stops);
+  background: linear-gradient($direction, $color-stops);
+}
+
+
+
+
+//menu renk ayarları
+/* Red */
+$bgDefault      : #FF5B30;
+$bgHighlight    : #c0392b;
+$colDefault     : #ecf0f1;
+$colHover       : #ffbbbc;
+ ///
+$anarenk:#f2efe8;
+$renk1: #247BA1;
+$renk2: #22B662;
+
+
+body{
+  background-color: $anarenk ;
+  font-family: "Lora",serif;
+  p{
+    size: 12px;
+
+  }
+
+}
+
+.page
+{
+  width: 100%;
+  min-height: 500px;
+  padding: 10px;
+  h2 {
+    font-family: "Lora",serif;
+  }
+  h2:before{
+    content: '\f0da  ';
+    font-family: 'FontAwesome';
+  }
+}
+.logo{
+  background-image: url("../images/logo.png");
+  background-size: 100% 100%;
+  background-color: transparent;
+  width: 50px;
+}
+.navbar-nav-ustmenu{
+margin-right: 50px;
+}
+#anasayfa{
+  background-color: $renk2;
+  @include linear-gradient(42deg, $renk1 0%, rgba(36, 123, 161,0.6) 50%, rgba(36, 123, 161,0.6)  50.01%, $renk1 100%);
+
+}
+#hakkimda{
+  background-color: $renk2;
+  @include linear-gradient(42deg, $renk2 0%, rgba(36, 123, 161,0.7) 50%, rgba(36, 123, 161,0.7)  50.01%, $renk2 100%);
+
+  h2{
+     padding-left: 50px;
+    font-family: "Lora",serif;
+  }
+  h3{
+     margin: -15px;
+    padding: 0px;
+    font-family: "Lora",serif;
+  }
+  p{
+    font-family: "Lora",serif;
+  }
+  hr{
+    width: 25%;
+    text-align: left;
+    margin-top: -5px;
+    margin-left: 35px;
+  }
+  .islerbox{
+    width: 90%;
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    hr{width: 50%;
+      margin-top: 0px;
+      margin-left: inherit;
+      margin-right:  55px;
+      margin-bottom: 15px;}
+    img{
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+    }
+    .items{
+      //items
+      p{font-size: 14px;}
+    h2{ font-size: 24px;padding: 0px;}
+    }
+  }
+}
+
+
+
+
+/* --- Style --- */
+.navbar-default {
+  background-color: $bgDefault;
+  @include linear-gradient(42deg, $bgDefault 0%, #D2B545 50%, #D2B545 50.01%, $bgHighlight 100%);
+  font-family: "Lora",serif;
+  border-color: $bgHighlight;
+  .navbar-brand {
+    color: $colDefault;
+    &:hover, &:focus {
+      color: $colHover; }}
+  .navbar-nav {
+    > li {
+      > a {
+        color: $colDefault;
+        &:hover, &:focus {
+          color: $colHover;   }}}
+    .active {
+      > a, > a:hover, > a:focus {
+        color: $colHover;
+        background-color: $bgHighlight; }}
+    .open {
+      > a, > a:hover, > a:focus {
+        color: $colHover;
+        background-color: $bgHighlight;
+        .caret {
+          border-top-color: $colHover;
+          border-bottom-color: $colHover; }}}
+    > .dropdown {
+      > a {
+        .caret {
+          border-top-color: $colDefault;
+          border-bottom-color: $colDefault; }
+        &:hover, &:focus {
+          .caret {
+            border-top-color: $colHover;
+            border-bottom-color: $colHover; }}}}}
+  .navbar-toggle {
+    border-color: $bgHighlight;
+    &:hover, &:focus {
+      background-color: $bgHighlight; }
+    .icon-bar {
+      background-color: $colDefault; }}}
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: $colDefault;
+    &:hover, &:focus {
+      color: $colHover;
+      background-color: $bgHighlight; }}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
