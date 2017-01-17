@@ -60,7 +60,7 @@
 
 
 <div class="page" id="hakkimda">
- <h2>Hakkımdai</h2>
+ <h2>Hakkımda</h2>
     <hr>
 <div class="container">
         <div class="col-xs-12 col-md-4"><img class="col-xs-12 col-md-12" src="images/avatar.png" >
