@@ -1,7 +1,7 @@
 <div class="blog_page" >
     <!-- Sidebar -->
     <div id="wrapper">
-        <div  class="left_sub_menu_butn" id="sub_left_menu"  > s</div>
+        <div  class="sol_menu_ac" id="sol_menu_ac">  </div>
     <div id="sidebar-wrapper">
         <ul class="sidebar-nav">
 
@@ -58,7 +58,7 @@
                         </div>
                     </div>
                     <div class="blog_postitem">
-                        <div class="col-md-3 col-lg-3">
+                        <div class="col-xs-12 col-sm-5 col-md-3 col-lg-3   ">
                             <a href="#" class="thumbnail">
                                 <img src="http://placehold.it/260x180" alt="">
                             </a>
@@ -70,7 +70,7 @@
                                 <span class="fa fa-star"></span>
                             </div>
                         </div>
-                        <div class="col-md-11 col-lg-11">
+                        <div class="col-xs-12 col-sm-11 col-md-11 col-lg-11 ">
                             <p>
                                 wLorem ipsum dolor sit amet, id nec conceptam conclusionemque. Et eam tation option. Utinam salutatus ex eum. Ne mea dicit tibique facilisi, ea mei omittam explicari conclusionemque, ad nobis propriae quaerendum sea.
                             </p>
@@ -98,6 +98,8 @@
                 </div>
             </div>
         </div>
+
+
         <div class="post_id post_youtube">
 
             <div class="blog_postitem ">
@@ -108,11 +110,11 @@
 
                         </div>
 
-                        <div class="col-md-12 col-lg-12">
+                        <div class="col-md-12 col-lg-12 col-xs-12">
                             <iframe style="margin-top: 10px;"   width="100%" height="315" src="https://www.youtube.com/embed/K037YM65CJE" frameborder="0" allowfullscreen></iframe>
 
                         </div>
-                        <div class="col-md-11 col-lg-11">
+                        <div class="col-md-11 col-lg-11 col-xs-11">
                             <p>
                                 wLorem ipsum dolor sit amet, id nec conceptam conclusionemque. Et eam tation option. Utinam salutatus ex eum. Ne mea dicit tibique facilisi, ea mei omittam explicari conclusionemque, ad nobis propriae quaerendum sea.
                             </p>

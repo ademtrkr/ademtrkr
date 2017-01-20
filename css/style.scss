@@ -743,7 +743,7 @@ a{}
   p{width: 100%;margin-top: 15px;}
   .blog_item_foot p{margin-top: -5px;margin-left: 15px; }
       .blog_postitem {
-        borderborder-radius: 3px 3px 3px;
+        border-radius: 3px 3px 3px;
         width: 100%;
         display: flex;
         background-color: $blog_postbg;
@@ -770,7 +770,57 @@ a{}
 
 /* Toggle Styles */
 
+.sol_menu_ac
+{
 
+  content: "";
+  width: 40px;
+  height: 40px;
+  position: fixed;
+  background-color: #c6ff00;
+  display: block;
+margin-top: 6px;
+  border-radius: 0px 5px 5px 0px;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+
+.sol_menu_ac:before
+{
+  font-size: 30px;
+  text-align: center;
+  line-height: 40px;
+ margin-left: 6px;
+  content: '\f0d9 ';
+  font-family: 'fontawesome';
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+.sol_menu_ac:hover:before
+{
+  font-size: 30px;
+  text-align: center;
+
+  font-family: 'fontawesome';
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+.sol_menu_ac_active:before
+{
+  content: '\f0c9';
+font-family: 'fontawesome';
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
 #sidebar-wrapper {
   padding-left: 0;
   -webkit-transition: all 0.5s ease;
@@ -791,7 +841,8 @@ a{}
   height: 100%;
   margin-left: -250px;
   overflow: auto;
-  background: #000;
+  @include linear-gradient(42deg, $renk1 0%, rgba(36, 123, 161,0.6) 50%, rgba(36, 123, 161,0.6)  50.01%, $renk1 100%);
+
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
@@ -833,7 +884,8 @@ a{}
 .sidebar-nav li a {
   display: block;
   text-decoration: none;
-  color: #999999;
+  color: #2e2e2e;
+  font-family: 'Lora';
 }
 
 .sidebar-nav li a:hover {
@@ -854,7 +906,7 @@ a{}
 }
 
 .sidebar-nav > .sidebar-brand a {
-  color: #999999;
+  color: #000000;
 }
 
 .sidebar-nav > .sidebar-brand a:hover {
@@ -863,43 +915,13 @@ a{}
 }
 
 
-#sub_left_menu:before {
-
-  font-family: 'FontAwesome';
-  font-size: 30px;
-  color: #c6ff00;;
-  text-align: center;
-  line-height: 35px;
-  height: 40px;
-  width: 40px;
-  content: '\f00d';
-  position: inherit;
-display: block;
-  margin-bottom: -60px;
-  z-index: 9999;
-  right: -40px;
-  background-color: #60cdff;
-  cursor: pointer;
-}
-#left_sub_menu_butn_active:hover::before {
-  transition:All 0.5s ease;
-  -webkit-transition:All 0,5s ease;
-  -moz-transition:All 0,5s ease;
-  -o-transition:All 0,5s ease;
-  content: '\f0da ';
-}
-.left_sub_menu_butn_active:before {
-
-  content: '\f0c9' !important;
-  font-family: 'FontAwesome';
-}
 
 
 
 
 
 
-@media(min-width:768px) {
+@media(min-width:800px) {
   #wrapper {
     padding-left: 250px;
 
@@ -949,39 +971,156 @@ display: block;
 
   }
 .blog_left_nav{float: none;}
-  .left_sub_menu_butn_active:before {
 
-    content: '\f00d' !important;
-    font-family: 'FontAwesome';
-    margin-left: 250px !important;
+
+
+  .sol_menu_ac
+  {
+
+    content: "";
+    width: 40px;
+    height: 40px;
+    position: fixed;
+    background-color: #c6ff00;
+    display: block;
+    margin-top: 6px;
+    border-radius: 0px 5px 5px 0px;
+    z-index: 7;
+    cursor: pointer;
   }
-  #sub_left_menu:before {
 
+
+  .sol_menu_ac:before
+  {
+    transition:All 0.5s ease;
+    -webkit-transition:All 0.5s ease;
+    -moz-transition:All 0.5s ease;
+    -o-transition:All 0.5s ease;
+    font-size: 30px;
+    text-align: center;
+    line-height: 40px;
+    margin-left: 6px;
     content: '\f0c9';
-
+    font-family: 'fontawesome';
   }
+  .sol_menu_ac:hover:before
+  {
+    transition:All 0.5s ease;
+    -webkit-transition:All 0.5s ease;
+    -moz-transition:All 0.5s ease;
+    -o-transition:All 0.5s ease;
+    font-size: 30px;
+    text-align: center;
+
+    color: black;
+    font-family: 'fontawesome';
+  }
+
+  .sol_menu_ac_active
+  {
+    transition:All 0.5s ease;
+    -webkit-transition:All 0.5s ease;
+    -moz-transition:All 0.5s ease;
+    -o-transition:All 0.5s ease;
+    content: '\f00d';
+    font-family: 'fontawesome';
+    margin-left: 250px;
+  }
+  .sol_menu_ac_active:before
+  {
+    transition:All 0.5s ease;
+    -webkit-transition:All 0.5s ease;
+    -moz-transition:All 0.5s ease;
+    -o-transition:All 0.5s ease;
+    content: '\f00d';
+    font-family: 'fontawesome';
+    margin-left: 5px;
+    color: black;
+  }
+
+
 }
 @media (min-width: 300px) and (max-width: 673px) {
-
+.blog_postitem
+{
+  display: inline-block !important;
+}
   .blog_item_foot {
     margin-left: -10px !important;
-    display: none;
+    visibility: hidden;
 
     p {
       margin-top: -5px;
       margin-left: 0px !important;
     }
   }
-  .left_sub_menu_butn_active:before {
 
-    content: '\f00d' !important;
-    font-family: 'FontAwesome';
-    margin-left: 250px !important;
+
+  .sol_menu_ac
+  {
+    transition:All 0.5s ease;
+    -webkit-transition:All 0.5s ease;
+    -moz-transition:All 0.5s ease;
+    -o-transition:All 0.5s ease;
+    content: "";
+    width: 40px;
+    height: 40px;
+    position: fixed;
+    background-color: #c6ff00;
+    display: block;
+    margin-top: 6px;
+    border-radius: 0px 5px 5px 0px;
+    z-index: 7;
+    cursor: pointer;
   }
-  #sub_left_menu:before {
 
+
+  .sol_menu_ac:before
+  {
+    transition:All 0.5s ease;
+    -webkit-transition:All 0.5s ease;
+    -moz-transition:All 0.5s ease;
+    -o-transition:All 0.5s ease;
+    font-size: 30px;
+    text-align: center;
+    line-height: 40px;
+    margin-left: 6px;
     content: '\f0c9';
+    font-family: 'fontawesome';
+  }
+  .sol_menu_ac:hover:before
+  {
+    transition:All 0.5s ease;
+    -webkit-transition:All 0.5s ease;
+    -moz-transition:All 0.5s ease;
+    -o-transition:All 0.5s ease;
+    font-size: 30px;
+    text-align: center;
 
+    color: black;
+    font-family: 'fontawesome';
+  }
+
+  .sol_menu_ac_active
+  {
+    transition:All 0.5s ease;
+    -webkit-transition:All 0.5s ease;
+    -moz-transition:All 0.5s ease;
+    -o-transition:All 0.5s ease;
+    content: '\f00d';
+    font-family: 'fontawesome';
+    margin-left: 250px;
+  }
+  .sol_menu_ac_active:before
+  {
+    transition:All 0.5s ease;
+    -webkit-transition:All 0.5s ease;
+    -moz-transition:All 0.5s ease;
+    -o-transition:All 0.5s ease;
+    content: '\f00d';
+    font-family: 'fontawesome';
+    margin-left: 5px;
+    color: black;
   }
 }
 

@@ -10,7 +10,7 @@
 
 <?php
 
-include "sayfalar/blogs.php";
+include "sayfalar/calismalar.php";
 
 ?>
 
@@ -26,10 +26,10 @@ include "sayfalar/blogs.php";
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script>
-    $("#sub_left_menu").click(function(e) {
+    $("#sol_menu_ac").click(function(e) {
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
-        $("#sub_left_menu").toggleClass("left_sub_menu_butn_active");
+        $(".sol_menu_ac").toggleClass("sol_menu_ac_active");
     });
     $("#menu-toggle").click(function(e) {
         e.preventDefault();
